@@ -1,0 +1,11 @@
+name: stale-prt
+on:
+  pull_request_target:
+    types: [opened]
+permissions:
+  pull-requests: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "STALE_PRT_RAN branch=${{ github.base_ref }} ref=$GITHUB_REF"
